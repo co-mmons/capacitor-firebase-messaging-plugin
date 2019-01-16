@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-firebase-messaging-plugin",
+  "name": "@co.mmons/capacitor-firebase-messaging-plugin",
   "version": "1.0.0",
   "description": "Firebase Messaging plugin for Capacitor",
   "main": "dist/index.js",
