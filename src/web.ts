@@ -28,6 +28,6 @@ export class FirebaseMessagingWebPlugin extends WebPlugin implements FirebaseMes
 	}
 }
 
-const FirebaseMessagingPlugin = new FirebaseMessagingWebPlugin();
+const FirebaseMessaging = new FirebaseMessagingWebPlugin();
 
-export {FirebaseMessagingPlugin};
+export {FirebaseMessaging};
