@@ -1,4 +1,4 @@
-import { PushNotification, PushNotificationActionPerformed, PushNotificationToken } from "@capacitor/core";
+import { PushNotification as CapacitorPushNotification, PushNotificationActionPerformed as CapacitorPushNotificationActionPerformed, PushNotificationToken } from "@capacitor/core";
 declare global {
     interface PluginRegistry {
         FirebaseMessaging?: FirebaseMessagingPlugin;
@@ -58,4 +58,9 @@ export declare enum NotificationPermissionState {
      */
     prompt = "prompt"
 }
-export { PushNotification, PushNotificationActionPerformed, PushNotificationToken };
+export { PushNotificationToken };
+export interface PushNotification<ExtraData = any> extends CapacitorPushNotification {
+    data?: ExtraData;
+}
+export interface PushNotificationActionPerformed<ExtraData = any> extends CapacitorPushNotificationActionPerformed, PushNotification<ExtraData> {
+}

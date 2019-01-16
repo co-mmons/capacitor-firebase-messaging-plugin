@@ -50,6 +50,8 @@ end
 ```
 
 # API
+Basically, you need to use PushNotifications from Capacitor - follow the docs (https://capacitor.ionicframework.com/docs/apis/push-notifications). The one thing, you don't need to do is to call register, as the FirebaseMessagingPlugin registers at the launch.
+
 ```
 export interface FirebaseMessagingPlugin {
     /**
