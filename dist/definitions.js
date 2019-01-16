@@ -1,3 +1,6 @@
+/**
+ * State of notification permission.
+ */
 export var NotificationPermissionState;
 (function (NotificationPermissionState) {
     /**
