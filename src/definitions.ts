@@ -6,13 +6,28 @@ declare global {
 
 export interface FirebaseMessagingPlugin {
     openPermissionSettings(): void;
-    permissionStatus(): Promise<{"result": PushNotificationPermissionStatus}>;
+    permissionState(): Promise<{"state": NotificationPermissionState}>;
     subscribeToTopic(topic: string): Promise<void>;
     unsubscribeFromTopic(topic: string): Promise<void>;
     destroy(): Promise<void>;
 }
 
-export type PushNotificationPermissionStatus = "enabled" | "disabled" | "unknown";
+export enum NotificationPermissionState {
+    /**
+     * The app has permission to use system notifications.
+     */
+    granted = "granted",
+
+    /**
+     * 	The app has been denied permission to use system notifications.
+     */
+    denied = "denied",
+
+    /**
+     * The app needs to ask for permission in order use system notifications.
+     */
+    prompt = "prompt"
+};
 
 export interface PushNotification {
     title?: string;

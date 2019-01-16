@@ -29,16 +29,16 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
         UIApplication.shared.open(URL(string: "app-settings:")!);
     }
     
-    @objc func permissionStatus(_ call: CAPPluginCall) {
+    @objc func permissionState(_ call: CAPPluginCall) {
         
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {settings in
             let status = settings.authorizationStatus;
             if (status == UNAuthorizationStatus.authorized) {
-                call.resolve(["result": "enabled"]);
+                call.resolve(["result": "granted"]);
             } else if (status == UNAuthorizationStatus.denied) {
-                call.resolve(["result": "disabled"]);
+                call.resolve(["result": "denied"]);
             } else {
-                call.resolve(["result": "unknown"]);
+                call.resolve(["result": "prompt"]);
             }
         })
     }

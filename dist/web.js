@@ -6,7 +6,7 @@ export class FirebaseMessagingWebPlugin extends WebPlugin {
     openPermissionSettings() {
         throw new Error("Method not implemented.");
     }
-    permissionStatus() {
+    permissionState() {
         throw new Error("Method not implemented.");
     }
     subscribeToTopic(topic) {

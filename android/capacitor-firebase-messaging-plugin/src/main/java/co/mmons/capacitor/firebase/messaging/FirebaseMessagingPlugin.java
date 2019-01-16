@@ -89,14 +89,15 @@ public class FirebaseMessagingPlugin extends Plugin {
         call.success();
     }
 
-    public void permissionStatus(PluginCall call) {
+    @PluginMethod()
+    public void permissionState(PluginCall call) {
 
         JSObject result = new JSObject();
 
         if (NotificationManagerCompat.from(this.getContext()).areNotificationsEnabled()) {
-            result.put("result", "enabled");
+            result.put("result", "granted");
         } else {
-            result.put("result", "disabled");
+            result.put("result", "denied");
         }
 
         call.resolve(result);
