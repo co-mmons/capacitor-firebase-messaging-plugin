@@ -1,4 +1,4 @@
-import {PushNotification, PushNotificationActionPerformed as CapacitorPushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
+import {PushNotification as CapacitorPushNotification, PushNotificationActionPerformed as CapacitorPushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
 
 declare global {
     interface PluginRegistry {
@@ -67,7 +67,11 @@ export enum NotificationPermissionState {
     prompt = "prompt"
 };
 
-export {PushNotification, PushNotificationToken};
+export {PushNotificationToken};
 
-export interface PushNotificationActionPerformed extends CapacitorPushNotificationActionPerformed, PushNotification {
+export interface PushNotification<ExtraData = any> extends CapacitorPushNotification {
+    data?: ExtraData;
+}
+
+export interface PushNotificationActionPerformed<ExtraData = any> extends CapacitorPushNotificationActionPerformed, PushNotification<ExtraData> {
 }
