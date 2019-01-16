@@ -19,7 +19,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.IOException;
 
-@NativePlugin()
+@NativePlugin(name = "FirebaseMessaging")
 public class FirebaseMessagingPlugin extends Plugin {
 
     public void load() {

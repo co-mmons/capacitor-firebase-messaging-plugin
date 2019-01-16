@@ -24,14 +24,18 @@ export interface FirebaseMessagingPlugin {
      * @return A promise, which is resolved when subscription successful, rejects other case.
      * @see https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging.html#subscribeToTopic(java.lang.String)
      */
-    subscribeToTopic(topic: string): Promise<void>;
+    subscribeToTopic(call: {
+        topic: string;
+    }): Promise<void>;
     /**
      * Unsubscribes from topic.
      * @param topic The name of the topic to subscribe. Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
      * @return A promise, which is resolved when unsubscription successful, rejects other case.
      * @see https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging.html#unsubscribeFromTopic(java.lang.String)
      */
-    unsubscribeFromTopic(topic: string): Promise<void>;
+    unsubscribeFromTopic(call: {
+        topic: string;
+    }): Promise<void>;
     /**
      * Delete the firebase instance (so it applies for other firebase components, e.g. Analytics or Firestore) and the data associated with it.
      * This stops the periodic sending of data to the Firebase backend started when the instance was generated, unless

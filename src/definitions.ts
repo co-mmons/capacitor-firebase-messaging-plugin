@@ -27,7 +27,7 @@ export interface FirebaseMessagingPlugin {
      * @return A promise, which is resolved when subscription successful, rejects other case.
      * @see https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging.html#subscribeToTopic(java.lang.String)
      */
-    subscribeToTopic(topic: string): Promise<void>;
+    subscribeToTopic(call: {topic: string}): Promise<void>;
 
     /**
      * Unsubscribes from topic.
@@ -35,7 +35,7 @@ export interface FirebaseMessagingPlugin {
      * @return A promise, which is resolved when unsubscription successful, rejects other case.
      * @see https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging.html#unsubscribeFromTopic(java.lang.String)
      */
-    unsubscribeFromTopic(topic: string): Promise<void>;
+    unsubscribeFromTopic(call: {topic: string}): Promise<void>;
 
     /**
      * Delete the firebase instance (so it applies for other firebase components, e.g. Analytics or Firestore) and the data associated with it.
