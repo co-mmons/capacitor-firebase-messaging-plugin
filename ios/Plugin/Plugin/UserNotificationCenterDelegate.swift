@@ -70,8 +70,8 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
 //            completionHandler([.badge, .sound])
 //        }
         //print(data);
-        completionHandler([.badge, .sound, .alert])
-        //completionHandler(.init(rawValue:0));
+        //completionHandler([.badge, .sound, .alert])
+        completionHandler(.init(rawValue:0));
     }
     
     /**
