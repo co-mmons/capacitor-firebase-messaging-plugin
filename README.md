@@ -48,3 +48,6 @@ target 'App' do
   pod 'CapacitorFirebaseMessagingPlugin', :path => '../../node_modules/@co.mmons/capacitor-firebase-messaging-plugin'  
 end
 ```
+
+# API
+
