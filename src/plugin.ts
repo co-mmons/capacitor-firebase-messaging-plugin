@@ -1,4 +1,6 @@
-import {PushNotification as CapacitorPushNotification, PushNotificationActionPerformed as CapacitorPushNotificationActionPerformed, PushNotificationToken} from "@capacitor/core";
+import {NotificationsPermissionState} from "./notifications-permission-state";
+import {RemoteMessage} from "./remote-message";
+import {PluginListenerHandle} from "@capacitor/core";
 
 declare global {
     interface PluginRegistry {
@@ -12,14 +14,14 @@ export interface FirebaseMessagingPlugin {
      * Open permission settings for current app. On iOS it will open settings related to system notifications,
      * on android it will open "about app" view, where the user will be able to grant system notifications.
      */
-    openPermissionSettings(): void;
+    openNotificationsPermissionSettings(): void;
 
     /**
      * Returns state of permission for system notifications (not only push, local as well).
      * 
-     * @return On Android only `NotificationPermissionState.granted` and `NotificationPermissionState.denied`.
+     * @return On Android only `NotificationsPermissionState.granted` and `NotificationsPermissionState.denied`.
      */
-    permissionState(): Promise<{"state": NotificationPermissionState}>;
+    notificationsPermissionState(): Promise<{"state": NotificationsPermissionState}>;
 
     /**
      * Subscribes to topic.
@@ -27,7 +29,7 @@ export interface FirebaseMessagingPlugin {
      * @return A promise, which is resolved when subscription successful, rejects other case.
      * @see https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging.html#subscribeToTopic(java.lang.String)
      */
-    subscribeToTopic(topic: string): Promise<void>;
+    subscribeToTopic(call: {topic: string}): Promise<void>;
 
     /**
      * Unsubscribes from topic.
@@ -35,7 +37,7 @@ export interface FirebaseMessagingPlugin {
      * @return A promise, which is resolved when unsubscription successful, rejects other case.
      * @see https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging.html#unsubscribeFromTopic(java.lang.String)
      */
-    unsubscribeFromTopic(topic: string): Promise<void>;
+    unsubscribeFromTopic(call: {topic: string}): Promise<void>;
 
     /**
      * Delete the firebase instance (so it applies for other firebase components, e.g. Analytics or Firestore) and the data associated with it.
@@ -45,33 +47,11 @@ export interface FirebaseMessagingPlugin {
      * @return A promise, which is resolved when destroy successful, rejects other case.
      */
     destroy(): Promise<void>;
-}
-
-/**
- * State of notification permission.
- */
-export enum NotificationPermissionState {
-    /**
-     * The app has permission to use system notifications.
-     */
-    granted = "granted",
 
     /**
-     * 	The app has been denied permission to use system notifications.
+     * 
+     * @param eventName 
+     * @param listener 
      */
-    denied = "denied",
-
-    /**
-     * The app needs to ask for permission in order use system notifications.
-     */
-    prompt = "prompt"
-};
-
-export {PushNotificationToken};
-
-export interface PushNotification<ExtraData = any> extends CapacitorPushNotification {
-    data?: ExtraData;
-}
-
-export interface PushNotificationActionPerformed<ExtraData = any> extends CapacitorPushNotificationActionPerformed, PushNotification<ExtraData> {
+    addListener(eventName: "messageReceived", listener: (message: RemoteMessage) => void): PluginListenerHandle;
 }

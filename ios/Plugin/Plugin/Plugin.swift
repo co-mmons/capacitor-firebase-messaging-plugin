@@ -21,15 +21,14 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
         FirebaseApp.configure();
         Messaging.messaging().delegate = self;
         
-        Messaging.messaging().subscribe(toTopic: "test");
         self.notificationCenter.requestPermissions();
     }
     
-    @objc func openPermissionSettings(_ call: CAPPluginCall) {
+    @objc func openNotificationsPermissionSettings(_ call: CAPPluginCall) {
         UIApplication.shared.open(URL(string: "app-settings:")!);
     }
     
-    @objc func permissionState(_ call: CAPPluginCall) {
+    @objc func notificationsPermissionState(_ call: CAPPluginCall) {
         
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {settings in
             let status = settings.authorizationStatus;
@@ -78,6 +77,6 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
     
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("CAPFirebaseMessagingPlugin: received token");
-        notifyListeners("registration", data:["value": fcmToken]);
+        notifyListeners("tokenReceived", data:["value": fcmToken]);
     }
 }

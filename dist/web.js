@@ -3,16 +3,16 @@ export class FirebaseMessagingWebPlugin extends WebPlugin {
     constructor() {
         super({ name: "FirebaseMessaging", platforms: ["web"] });
     }
-    openPermissionSettings() {
+    openNotificationsPermissionSettings() {
         throw new Error("Method not implemented.");
     }
-    permissionState() {
+    notificationsPermissionState() {
         throw new Error("Method not implemented.");
     }
-    subscribeToTopic(topic) {
+    subscribeToTopic(call) {
         throw new Error("Method not implemented.");
     }
-    unsubscribeFromTopic(topic) {
+    unsubscribeFromTopic(call) {
         throw new Error("Method not implemented.");
     }
     destroy() {

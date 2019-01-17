@@ -3,6 +3,12 @@ window.customElements.define('capacitor-welcome', class extends HTMLElement {
     super();
 
     Capacitor.Plugins.SplashScreen.hide();
+
+    Capacitor.Plugins.FirebaseMessaging.addListener("messageReceived", function(message) {
+      console.log(message);
+    });
+
+    Capacitor.Plugins.FirebaseMessaging.subscribeToTopic({topic: "test"});
     
     const root = this.attachShadow({ mode: 'open' });
 
