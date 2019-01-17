@@ -39,6 +39,16 @@ this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
   add(FirebaseMessagingPlugin.class);
 }});
 ```
+The last thing is to configure firebase service in AndroidManifest.xml:
+```
+<application>
+        <service android:name="co.mmons.capacitor.firebase.messaging.FirebaseMessagingServiceImpl" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+</application>
+```
 
 # Configure iOS app
 Edit ios/App/Podfile and add pod to App target:
