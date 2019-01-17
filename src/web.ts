@@ -28,7 +28,3 @@ export class FirebaseMessagingWebPlugin extends WebPlugin implements FirebaseMes
 		throw new Error("Method not implemented.");
 	}
 }
-
-const FirebaseMessaging = new FirebaseMessagingWebPlugin();
-
-export {FirebaseMessaging};
