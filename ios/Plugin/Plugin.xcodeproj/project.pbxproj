@@ -15,8 +15,7 @@
 		50ADFFA42020D75100D50D53 /* Capacitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFFA52020D75100D50D53 /* Capacitor.framework */; };
 		50ADFFA82020EE4F00D50D53 /* Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFFA72020EE4F00D50D53 /* Plugin.m */; };
 		50E1A94820377CB70090CE1A /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1A94720377CB70090CE1A /* Plugin.swift */; };
-		EA3B235621EA25A4007D0CAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3B235521EA25A3007D0CAD /* GoogleService-Info.plist */; };
-		EA3B235C21EA38F7007D0CAD /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3B235B21EA38F7007D0CAD /* Entitlements.plist */; };
+		EA996F9821EFDBEB00857AB1 /* UserNotificationCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA996F9721EFDBEB00857AB1 /* UserNotificationCenterDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +42,8 @@
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
 		96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EA3B235521EA25A3007D0CAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EA3B235B21EA38F7007D0CAD /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = ../../Entitlements.plist; sourceTree = "<group>"; };
 		EA7AB86A21E9F92D00F33975 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EA996F9721EFDBEB00857AB1 /* UserNotificationCenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationCenterDelegate.swift; sourceTree = "<group>"; };
 		F65BB2953ECE002E1EF3E424 /* Pods-PluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6753A823D3815DB436415E3 /* Pods_PluginTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PluginTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,8 +93,7 @@
 		50ADFF8A201F53D600D50D53 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				EA3B235B21EA38F7007D0CAD /* Entitlements.plist */,
-				EA3B235521EA25A3007D0CAD /* GoogleService-Info.plist */,
+				EA996F9721EFDBEB00857AB1 /* UserNotificationCenterDelegate.swift */,
 				50E1A94720377CB70090CE1A /* Plugin.swift */,
 				50ADFF8B201F53D600D50D53 /* Plugin.h */,
 				50ADFFA72020EE4F00D50D53 /* Plugin.m */,
@@ -235,8 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA3B235C21EA38F7007D0CAD /* Entitlements.plist in Resources */,
-				EA3B235621EA25A4007D0CAD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA996F9821EFDBEB00857AB1 /* UserNotificationCenterDelegate.swift in Sources */,
 				50E1A94820377CB70090CE1A /* Plugin.swift in Sources */,
 				50ADFFA82020EE4F00D50D53 /* Plugin.m in Sources */,
 			);

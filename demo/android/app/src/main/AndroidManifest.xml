@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
+            android:launchMode = "singleInstance"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
             android:name="co.mmons.capacitor.firebase.messaging.demo.MainActivity"
             android:label="@string/title_activity_main"
@@ -39,6 +40,14 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"></meta-data>
         </provider>
+
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false" />
+        <service android:name="co.mmons.capacitor.firebase.messaging.FirebaseMessagingServiceImpl" android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
     </application>
 
     <!-- Permissions -->

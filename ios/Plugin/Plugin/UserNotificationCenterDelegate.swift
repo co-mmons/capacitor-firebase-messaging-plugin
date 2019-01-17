@@ -39,39 +39,27 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
         let request = notification.request;
         
         var plugin: CAPPlugin;
-        var action = "localNotificationReceived";
-        
-        var data = makeNotificationRequestJSObject(request);
+        var action: String;
+        var data: JSObject;
         
         if (request.trigger?.isKind(of: UNPushNotificationTrigger.self))! {
             plugin = (self.bridge?.getOrLoadPlugin(pluginName: "FirebaseMessaging"))!
-            action = "pushNotificationReceived";
-            data = makePushNotificationRequestJSObject(request);
+            action = "messageReceived";
+            data = makeRemoteMessageJsObject(request);
             
         } else {
             plugin = (self.bridge?.getOrLoadPlugin(pluginName: "LocalNotifications"))!;
-            
+            action = "localNotificationReceived";
+            data = makeNotificationRequestJSObject(request);
         }
         
         plugin.notifyListeners(action, data: data)
-        
-//        completionHandler(.init(rawValue:0));
-//        if let options = notificationRequestLookup[request.identifier] {
-//            let silent = options["silent"] as? Bool ?? false
-//            if silent {
-//                completionHandler(.init(rawValue:0))
-//                return
-//            }
-//        }
-//
-//        if (self.bridge?.isAppActive())! {
-//            completionHandler([.badge, .sound, .alert])
-//        } else {
-//            completionHandler([.badge, .sound])
-//        }
-        //print(data);
-        //completionHandler([.badge, .sound, .alert])
-        completionHandler(.init(rawValue:0));
+
+        if (action == "messageReceived") {
+            completionHandler(.init(rawValue:0));
+        } else {
+            completionHandler([.badge, .sound, .alert])
+        }
     }
     
     /**
@@ -84,40 +72,33 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
         completionHandler();
         
         var data = JSObject();
+        let request = response.notification.request;
         
-        // Get the info for the original notification request
-        let originalNotificationRequest = response.notification.request
+        var plugin: CAPPlugin;
+        var eventName: String;
         
-        let actionId = response.actionIdentifier
-        
-        // We turn the two default actions (open/dismiss) into generic strings
-        if actionId == UNNotificationDefaultActionIdentifier {
-            data["actionId"] = "tap"
-        } else if actionId == UNNotificationDismissActionIdentifier {
-            data["actionId"] = "dismiss"
+        if (request.trigger?.isKind(of: UNPushNotificationTrigger.self))! {
+            plugin = (self.bridge?.getOrLoadPlugin(pluginName: "FirebaseMessaging"))!
+            data = makeRemoteMessageJsObject(request);
+            eventName = "messageReceived";
         } else {
-            data["actionId"] = actionId
+            plugin = (self.bridge?.getOrLoadPlugin(pluginName: "LocalNotifications"))!
+            data = makeNotificationRequestJSObject(request);
+            eventName = "localNotificationActionPerformed";
+        }
+        
+        if (response.actionIdentifier == UNNotificationDefaultActionIdentifier) {
+            data["actionId"] = "tap";
+        } else if (response.actionIdentifier == UNNotificationDismissActionIdentifier) {
+            data["actionId"] = "dismiss";
         }
         
         // If the type of action was for an input type, get the value
         if let inputType = response as? UNTextInputNotificationResponse {
-            data["inputValue"] = inputType.userText
+            data["inputValue"] = inputType.userText;
         }
         
-        var plugin: CAPPlugin
-        var action = "localNotificationActionPerformed"
-        
-        if (originalNotificationRequest.trigger?.isKind(of: UNPushNotificationTrigger.self))! {
-            plugin = (self.bridge?.getOrLoadPlugin(pluginName: "PushNotifications"))!
-            data["notificationRequest"] = makePushNotificationRequestJSObject(originalNotificationRequest)
-            action = "pushNotificationActionPerformed"
-        } else {
-            data["notificationRequest"] = makeNotificationRequestJSObject(originalNotificationRequest)
-            plugin = (self.bridge?.getOrLoadPlugin(pluginName: "LocalNotifications"))!
-        }
-        
-        print(data);
-        plugin.notifyListeners(action, data: data)
+        plugin.notifyListeners(eventName, data: data);
     }
     
     /**
@@ -134,7 +115,7 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
     /**
      * Turn a UNNotificationRequest into a JSObject to return back to the client.
      */
-    func makePushNotificationRequestJSObject(_ request: UNNotificationRequest) -> JSObject {
+    func makeRemoteMessageJsObject(_ request: UNNotificationRequest) -> JSObject {
         let content = request.content
         
         let extraData = try? JSONSerialization.jsonObject(with: JSONSerialization.data(withJSONObject: content.userInfo), options: []);
