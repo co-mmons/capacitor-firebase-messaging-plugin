@@ -1,0 +1,2 @@
+include ':capacitor-firebase-messaging-plugin'
+project(':capacitor-firebase-messaging-plugin').projectDir = new File('@co.mmons/capacitor-firebase-messaging-plugin')
