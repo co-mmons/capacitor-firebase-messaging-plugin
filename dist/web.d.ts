@@ -15,5 +15,3 @@ export declare class FirebaseMessagingWebPlugin extends WebPlugin implements Fir
     }): Promise<void>;
     destroy(): Promise<void>;
 }
-declare const FirebaseMessaging: FirebaseMessagingWebPlugin;
-export { FirebaseMessaging };

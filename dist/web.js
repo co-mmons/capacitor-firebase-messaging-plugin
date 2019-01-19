@@ -19,6 +19,4 @@ export class FirebaseMessagingWebPlugin extends WebPlugin {
         throw new Error("Method not implemented.");
     }
 }
-const FirebaseMessaging = new FirebaseMessagingWebPlugin();
-export { FirebaseMessaging };
 //# sourceMappingURL=web.js.map

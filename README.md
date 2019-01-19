@@ -8,17 +8,6 @@ Until Capacitor and plugin are final, every breaking change (either in api or co
 ```npm install git+https://github.com/co-mmons/capacitor-firebase-messaging-plugin.git```
 
 # Configure Android app
-First you need to edit android/settings.gradle and link plugin to node_modules:
-```
-include ':capacitor-firebase-messaging-plugin'
-project(':capacitor-firebase-messaging-plugin').projectDir = new File('../node_modules/@co.mmons/capacitor-firebase-messaging-plugin/android/plugin/')
-```
-Next open android/app/build.gradle and add:
-```
-dependencies {
-    implementation project(':capacitor-firebase-messaging-plugin')
-}
-```
 It is very likely, that gradle will yell, about firebase versions mismatch, so edit android/build.gradle and add:
 ```
 allprojects {

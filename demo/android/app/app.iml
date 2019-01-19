@@ -158,5 +158,8 @@
     <orderEntry type="module" module-name="capacitor-android" />
     <orderEntry type="module" module-name="capacitor-cordova-android-plugins" />
     <orderEntry type="module" module-name="capacitor-firebase-messaging-plugin" />
+    <orderEntry type="module" module-name="capacitor-android" />
+    <orderEntry type="module" module-name="capacitor-cordova-android-plugins" />
+    <orderEntry type="module" module-name="capacitor-firebase-messaging-plugin" />
   </component>
 </module>
