@@ -11,15 +11,15 @@
   },
   "author": "co.mmons",
   "license": "MIT",
-  "dependencies": {
-    "@capacitor/core": "latest"
-  },
   "devDependencies": {
     "@capacitor/android": "latest",
     "@capacitor/cli": "latest",
-    "@capacitor/ios": "^1.0.0-beta.13",
+    "@capacitor/ios": "latest",
     "firebase-admin": "^6.5.0",
     "typescript": "^2.6.2"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "latest"
   },
   "capacitor": {
     "ios": {
