@@ -181,9 +181,9 @@ public class FirebaseMessagingPlugin extends Plugin {
         JSObject result = new JSObject();
 
         if (NotificationManagerCompat.from(this.getContext()).areNotificationsEnabled()) {
-            result.put("result", "granted");
+            result.put("state", "granted");
         } else {
-            result.put("result", "denied");
+            result.put("state", "denied");
         }
 
         call.resolve(result);

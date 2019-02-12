@@ -3,5 +3,5 @@ export * from "./notifications-permission-state";
 export * from "./plugin";
 export * from "./web";
 export * from "./remote-message";
-declare var pluginInstance: FirebaseMessagingPlugin;
-export { pluginInstance as FirebaseMessaging };
+declare const instance: FirebaseMessagingPlugin;
+export { instance as FirebaseMessaging };
