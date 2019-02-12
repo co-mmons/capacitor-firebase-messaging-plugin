@@ -1,4 +1,5 @@
 import {Capacitor, Plugins} from "@capacitor/core";
+import {FirebaseMessagingPlugin} from "./plugin";
 import {FirebaseMessagingWebPlugin} from "./web";
 
 export * from "./notifications-permission-state";
@@ -10,6 +11,6 @@ if (Capacitor.platform == "web") {
     Plugins.FirebaseMessaging = new FirebaseMessagingWebPlugin();
 }
 
-const instance = Plugins.FirebaseMessaging;
+const instance: FirebaseMessagingPlugin = Plugins.FirebaseMessaging;
 export {instance as FirebaseMessaging};
 
