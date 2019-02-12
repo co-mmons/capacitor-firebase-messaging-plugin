@@ -33,11 +33,11 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
         UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {settings in
             let status = settings.authorizationStatus;
             if (status == UNAuthorizationStatus.authorized) {
-                call.resolve(["result": "granted"]);
+                call.resolve(["state": "granted"]);
             } else if (status == UNAuthorizationStatus.denied) {
-                call.resolve(["result": "denied"]);
+                call.resolve(["state": "denied"]);
             } else {
-                call.resolve(["result": "prompt"]);
+                call.resolve(["state": "prompt"]);
             }
         })
     }

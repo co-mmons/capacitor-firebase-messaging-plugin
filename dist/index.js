@@ -3,9 +3,9 @@ import { FirebaseMessagingWebPlugin } from "./web";
 export * from "./notifications-permission-state";
 export * from "./plugin";
 export * from "./web";
-var pluginInstance;
-if (!pluginInstance) {
-    pluginInstance = Capacitor.platform == "web" ? new FirebaseMessagingWebPlugin() : Plugins.FirebaseMessaging;
+if (Capacitor.platform == "web") {
+    Plugins.FirebaseMessaging = new FirebaseMessagingWebPlugin();
 }
-export { pluginInstance as FirebaseMessaging };
+const instance = Plugins.FirebaseMessaging;
+export { instance as FirebaseMessaging };
 //# sourceMappingURL=index.js.map

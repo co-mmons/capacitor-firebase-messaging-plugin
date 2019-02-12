@@ -1,4 +1,3 @@
-import {FirebaseMessagingPlugin} from "./plugin";
 import {Capacitor, Plugins} from "@capacitor/core";
 import {FirebaseMessagingWebPlugin} from "./web";
 
@@ -7,9 +6,10 @@ export * from "./plugin";
 export * from "./web";
 export * from "./remote-message";
 
-var pluginInstance: FirebaseMessagingPlugin;
-if (!pluginInstance) {
-    pluginInstance = Capacitor.platform == "web" ? new FirebaseMessagingWebPlugin() : Plugins.FirebaseMessaging;
+if (Capacitor.platform == "web") {
+    Plugins.FirebaseMessaging = new FirebaseMessagingWebPlugin();
 }
 
-export {pluginInstance as FirebaseMessaging};
+const instance = Plugins.FirebaseMessaging;
+export {instance as FirebaseMessaging};
+
