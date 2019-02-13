@@ -53,7 +53,7 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
             data = makeNotificationRequestJSObject(request);
         }
         
-        plugin.notifyListeners(action, data: data)
+        plugin.notifyListeners(action, data: data);
 
         if (action == "messageReceived") {
             completionHandler(.init(rawValue:0));
@@ -98,7 +98,7 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
             data["inputValue"] = inputType.userText;
         }
         
-        plugin.notifyListeners(eventName, data: data);
+        plugin.notifyListeners(eventName, data: data, retainUntilConsumed: true);
     }
     
     /**
