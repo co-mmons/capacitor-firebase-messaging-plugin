@@ -71,6 +71,8 @@ public class FirebaseMessagingPlugin extends Plugin {
         }
 
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+
+        this.handleOnNewIntent(this.bridge.getActivity().getIntent());
     }
 
     protected void handleOnNewIntent(Intent intent) {
