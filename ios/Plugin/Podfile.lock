@@ -1,54 +1,69 @@
 PODS:
-  - Capacitor (1.0.0-beta.13):
-    - CapacitorCordova (= 1.0.0-beta.13)
-  - CapacitorCordova (1.0.0-beta.13)
-  - Firebase/CoreOnly (5.8.1):
-    - FirebaseCore (= 5.1.3)
-  - Firebase/Messaging (5.8.1):
+  - Capacitor (1.1.0):
+    - CapacitorCordova (= 1.1.0)
+  - CapacitorCordova (1.1.0)
+  - Firebase/CoreOnly (5.20.2):
+    - FirebaseCore (= 5.4.1)
+  - Firebase/Messaging (5.20.2):
     - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.1.2)
-  - FirebaseCore (5.1.3):
-    - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.2.1):
-    - FirebaseCore (~> 5.1)
+    - FirebaseMessaging (= 3.5.0)
+  - FirebaseAnalyticsInterop (1.2.0)
+  - FirebaseCore (5.4.1):
     - GoogleUtilities/Environment (~> 5.2)
-  - FirebaseMessaging (3.1.2):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - GoogleUtilities/Reachability (~> 5.2)
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseInstanceID (3.8.1):
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/UserDefaults (~> 5.2)
+  - FirebaseMessaging (3.5.0):
+    - FirebaseAnalyticsInterop (~> 1.1)
+    - FirebaseCore (~> 5.2)
+    - FirebaseInstanceID (~> 3.6)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/Reachability (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
     - Protobuf (~> 3.1)
-  - GoogleUtilities/Environment (5.3.0)
-  - GoogleUtilities/Logger (5.3.0):
+  - GoogleUtilities/Environment (5.8.0)
+  - GoogleUtilities/Logger (5.8.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/Reachability (5.3.0):
+  - GoogleUtilities/Reachability (5.8.0):
     - GoogleUtilities/Logger
-  - Protobuf (3.6.1)
+  - GoogleUtilities/UserDefaults (5.8.0):
+    - GoogleUtilities/Logger
+  - Protobuf (3.7.0)
 
 DEPENDENCIES:
-  - Capacitor (= 1.0.0-beta.13)
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - Firebase/Messaging
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Capacitor
-    - CapacitorCordova
     - Firebase
+    - FirebaseAnalyticsInterop
     - FirebaseCore
     - FirebaseInstanceID
     - FirebaseMessaging
     - GoogleUtilities
     - Protobuf
 
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+
 SPEC CHECKSUMS:
-  Capacitor: 66a2bdd741e014edf461202c5f7899d4fcc9c185
-  CapacitorCordova: 787c1b04319cbcba4b60c24902b1d9068eacf276
-  Firebase: a870ed114d769b424021a0c8ddb0c86c3250a0c5
-  FirebaseCore: 27bd80e5bfaaf9552a1f5cacb4c7e8bb925bab22
-  FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
-  FirebaseMessaging: d6feeb06218d2675b4149b0ada925a6b707a74cf
-  GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
-  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  Capacitor: c23087ba61b2620eed900331d434a85a07773c71
+  CapacitorCordova: 49e84a6ab0ff82f00667bd27bb3c0e98bafea445
+  Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
+  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
+  FirebaseMessaging: 4235f949ce1c4e827aeb19705ba5c53f9b85aa10
+  GoogleUtilities: 04fce34bcd5620c1ee76fb79172105c74a4df335
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
 
-PODFILE CHECKSUM: 306844a3680f9c874944b2881c9f0f5110267ad6
+PODFILE CHECKSUM: 8f6a9013c62aaa2183740890a12bc5006a113c6f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2
