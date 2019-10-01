@@ -3,7 +3,7 @@ import {FirebaseMessagingPlugin} from "./plugin";
 import {NotificationsPermissionState} from "./notifications-permission-state";
 
 export class FirebaseMessagingWebPlugin extends WebPlugin implements FirebaseMessagingPlugin {
-	
+
 	constructor() {
 		super({name: "FirebaseMessaging", platforms: ["web"]});
 	}
@@ -15,7 +15,11 @@ export class FirebaseMessagingWebPlugin extends WebPlugin implements FirebaseMes
 	notificationsPermissionState(): Promise<{"state": NotificationsPermissionState}> {
 		throw new Error("Method not implemented.");
 	}
-	
+
+	removeAllDeliveredNotifications(): Promise<void> {
+		throw new Error("Method not implemented.");
+	}
+
 	subscribeToTopic(call: {topic: string}): Promise<void> {
 		throw new Error("Method not implemented.");
 	}

@@ -14,7 +14,8 @@
     "noUnusedParameters": false,
     "outDir": "dist",
     "sourceMap": true,
-    "target": "es2015"
+    "target": "es2015",
+    "importHelpers": true
   },
   "files": [
     "src/index.ts"

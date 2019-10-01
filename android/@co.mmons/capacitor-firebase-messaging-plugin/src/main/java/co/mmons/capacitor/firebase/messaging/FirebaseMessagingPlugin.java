@@ -191,4 +191,9 @@ public class FirebaseMessagingPlugin extends Plugin {
         call.resolve(result);
     }
 
+    @PluginMethod()
+    public void removeAllDeliveredNotifications(PluginCall call) {
+        call.success();
+    }
+
 }

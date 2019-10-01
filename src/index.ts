@@ -11,6 +11,5 @@ if (Capacitor.platform == "web") {
     Plugins.FirebaseMessaging = new FirebaseMessagingWebPlugin();
 }
 
-const instance: FirebaseMessagingPlugin = Plugins.FirebaseMessaging;
+const instance = Plugins.FirebaseMessaging as FirebaseMessagingPlugin;
 export {instance as FirebaseMessaging};
-

@@ -7,6 +7,7 @@ export declare class FirebaseMessagingWebPlugin extends WebPlugin implements Fir
     notificationsPermissionState(): Promise<{
         "state": NotificationsPermissionState;
     }>;
+    removeAllDeliveredNotifications(): Promise<void>;
     subscribeToTopic(call: {
         topic: string;
     }): Promise<void>;

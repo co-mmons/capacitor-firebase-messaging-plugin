@@ -9,6 +9,9 @@ export class FirebaseMessagingWebPlugin extends WebPlugin {
     notificationsPermissionState() {
         throw new Error("Method not implemented.");
     }
+    removeAllDeliveredNotifications() {
+        throw new Error("Method not implemented.");
+    }
     subscribeToTopic(call) {
         throw new Error("Method not implemented.");
     }

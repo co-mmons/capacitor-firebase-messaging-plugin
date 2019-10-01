@@ -74,6 +74,20 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
         });
     }
 
+    /**
+     * Remove all notifications from Notification Center
+     */
+    @objc func removeAllDeliveredNotifications(_ call: CAPPluginCall) {
+        
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications();
+        
+        DispatchQueue.main.async(execute: {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        });
+        
+        call.success();
+    }
+
     
     public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("CAPFirebaseMessagingPlugin: received token");
