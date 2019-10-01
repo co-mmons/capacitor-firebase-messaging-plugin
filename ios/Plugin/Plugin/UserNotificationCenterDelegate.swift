@@ -56,7 +56,7 @@ public class UserNotificationCenterDelegateImpl : NSObject, UNUserNotificationCe
         plugin.notifyListeners(action, data: data);
 
         if (action == "messageReceived") {
-            completionHandler(.init(rawValue:0));
+            completionHandler([.badge]);
         } else {
             completionHandler([.badge, .sound, .alert])
         }
