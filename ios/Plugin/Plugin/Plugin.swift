@@ -25,7 +25,9 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
     }
     
     @objc func openNotificationsPermissionSettings(_ call: CAPPluginCall) {
-        UIApplication.shared.open(URL(string: "app-settings:")!);
+        DispatchQueue.main.async {
+            UIApplication.shared.open(URL(string: "app-settings:")!);
+        }
     }
     
     @objc func notificationsPermissionState(_ call: CAPPluginCall) {
