@@ -1,7 +1,7 @@
 PODS:
-  - Capacitor (1.1.0):
-    - CapacitorCordova (= 1.1.0)
-  - CapacitorCordova (1.1.0)
+  - Capacitor (1.4.0):
+    - CapacitorCordova (= 1.4.0)
+  - CapacitorCordova (1.4.0)
   - Firebase/CoreOnly (5.20.2):
     - FirebaseCore (= 5.4.1)
   - Firebase/Messaging (5.20.2):
@@ -38,7 +38,7 @@ DEPENDENCIES:
   - Firebase/Messaging
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Firebase
     - FirebaseAnalyticsInterop
     - FirebaseCore
@@ -54,8 +54,8 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/ios"
 
 SPEC CHECKSUMS:
-  Capacitor: c23087ba61b2620eed900331d434a85a07773c71
-  CapacitorCordova: 49e84a6ab0ff82f00667bd27bb3c0e98bafea445
+  Capacitor: e548fe61e71fa160367a36387f54483647ca20f6
+  CapacitorCordova: 17c1ed13e5303aa5153fb405adb4196cc56b40d5
   Firebase: 0c8cf33f266410c61ab3e2265cfa412200351d9c
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
   FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
@@ -66,4 +66,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8f6a9013c62aaa2183740890a12bc5006a113c6f
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.8.4

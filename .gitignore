@@ -12,3 +12,4 @@ cli/key.json
 **/.idea/dictionaries/
 **/.idea/libraries/
 **/.idea/caches/
+package-lock.json
