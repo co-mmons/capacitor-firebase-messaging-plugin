@@ -1,9 +1,7 @@
 package co.mmons.capacitor.firebase.messaging;
 
 import com.getcapacitor.JSObject;
-import com.getcapacitor.MessageHandler;
 import com.getcapacitor.PluginCall;
-import com.getcapacitor.PluginResult;
 
 public class DummyPluginCall extends PluginCall {
 
