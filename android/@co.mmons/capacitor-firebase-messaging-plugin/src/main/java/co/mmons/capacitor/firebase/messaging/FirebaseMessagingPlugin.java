@@ -123,14 +123,36 @@ public class FirebaseMessagingPlugin extends Plugin {
     @PluginMethod()
     public void subscribeToTopic(final PluginCall call) {
         final String topic = call.getString("topic");
-        FirebaseMessaging.getInstance().subscribeToTopic(topic);
+        FirebaseMessaging.getInstance().subscribeToTopic(topic)
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+//                    if (task.isSuccessful()) {
+//                        call.resolve();
+//                    } else {
+//                        call.reject("Failed subscribing to topic " + topic, task.getException());
+//                    }
+                }
+            });
+
         call.resolve();
     }
 
     @PluginMethod()
     public void unsubscribeFromTopic(final PluginCall call) {
         final String topic = call.getString("topic");
-        FirebaseMessaging.getInstance().unsubscribeFromTopic(topic);
+        FirebaseMessaging.getInstance().unsubscribeFromTopic(topic)
+            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+//                    if (task.isSuccessful()) {
+//                        call.resolve();
+//                    } else {
+//                        call.reject("Failed unsubscribing from topic " + topic, task.getException());
+//                    }
+                }
+            });
+
         call.resolve();
     }
 
