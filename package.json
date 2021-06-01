@@ -1,6 +1,6 @@
 {
   "name": "@co.mmons/capacitor-firebase-messaging-plugin",
-  "version": "0.2.0",
+  "version": "2.0.0",
   "description": "Firebase Messaging plugin for Capacitor",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,10 +16,10 @@
     "@capacitor/android": "latest",
     "@capacitor/cli": "latest",
     "@capacitor/ios": "latest",
-    "@types/fs-extra": "^8.0.0",
-    "firebase-admin": "^6.5.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.9.5"
+    "@types/fs-extra": "^9.0.11",
+    "firebase-admin": "^9.4.0",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
   },
   "peerDependencies": {
     "@capacitor/core": "latest",
