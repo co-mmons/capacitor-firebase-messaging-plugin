@@ -1,12 +1,6 @@
 import {PluginListenerHandle} from "@capacitor/core";
-import {NotificationsPermissionState} from "./notifications-permission-state";
-import {RemoteMessage} from "./remote-message";
-
-declare global {
-    interface PluginRegistry {
-        FirebaseMessaging?: FirebaseMessagingPlugin;
-    }
-}
+import {NotificationsPermissionState} from "./NotificationsPermissionState";
+import {RemoteMessage} from "./RemoteMessage";
 
 export interface FirebaseMessagingPlugin {
 
@@ -18,7 +12,7 @@ export interface FirebaseMessagingPlugin {
 
     /**
      * Returns state of permission for system notifications (not only push, local as well).
-     * 
+     *
      * @return On Android only `NotificationsPermissionState.granted` and `NotificationsPermissionState.denied`.
      */
     notificationsPermissionState(): Promise<{"state": NotificationsPermissionState}>;
@@ -46,17 +40,17 @@ export interface FirebaseMessagingPlugin {
 
     /**
      * Delete the firebase instance (so it applies for other firebase components, e.g. Analytics or Firestore) and the data associated with it.
-     * This stops the periodic sending of data to the Firebase backend started when the instance was generated, unless 
+     * This stops the periodic sending of data to the Firebase backend started when the instance was generated, unless
      * another library that requires instance (like FCM, RemoteConfig or Analytics) is used or it's configured to be executed automatically.
-     * 
+     *
      * @return A promise, which is resolved when destroy successful, rejects other case.
      */
     destroy(): Promise<void>;
 
     /**
-     * 
-     * @param eventName 
-     * @param listener 
+     *
+     * @param eventName
+     * @param listener
      */
     addListener(eventName: "messageReceived", listener: (message: RemoteMessage) => void): PluginListenerHandle;
 }

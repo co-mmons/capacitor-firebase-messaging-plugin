@@ -1,15 +1,12 @@
-import {Capacitor, Plugins} from "@capacitor/core";
-import {FirebaseMessagingPlugin} from "./plugin";
-import {FirebaseMessagingWebPlugin} from "./web";
+import {registerPlugin} from "@capacitor/core";
 
-export * from "./notifications-permission-state";
-export * from "./plugin";
-export * from "./web";
-export * from "./remote-message";
+export * from "./NotificationsPermissionState";
+export * from "./FirebaseMessagingPlugin";
+export * from "./FirebaseMessagingWebPlugin";
+export * from "./RemoteMessage";
 
-if (Capacitor.platform == "web") {
-    Plugins.FirebaseMessaging = new FirebaseMessagingWebPlugin();
-}
+const FirebaseMessaging = registerPlugin("FirebaseMessaging", {
+    web: () => import("./FirebaseMessagingWebPlugin").then(m => new m.FirebaseMessagingWebPlugin())
+});
 
-const instance = Plugins.FirebaseMessaging as FirebaseMessagingPlugin;
-export {instance as FirebaseMessaging};
+export {FirebaseMessaging};

@@ -2,6 +2,7 @@
  * State of notification permission.
  */
 export enum NotificationsPermissionState {
+
     /**
      * The app has permission to use system notifications.
      */
@@ -16,4 +17,5 @@ export enum NotificationsPermissionState {
      * The app needs to ask for permission in order use system notifications.
      */
     prompt = "prompt"
-};
+
+}
