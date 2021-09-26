@@ -46,24 +46,14 @@ public class CAPFirebaseMessagingPlugin: CAPPlugin, MessagingDelegate {
     
     @objc func subscribeToTopic(_ call: CAPPluginCall) {
         let topic = call.getString("topic")!;
-        Messaging.messaging().subscribe(toTopic: topic, completion: {completion in
-            if (completion == nil) {
-                call.resolve();
-            } else {
-                call.error("Failed subscribe to topic \(topic)", completion);
-            }
-        });
+        Messaging.messaging().subscribe(toTopic: topic);
+        call.resolve();
     }
 
     @objc func unsubscribeFromTopic(_ call: CAPPluginCall) {
         let topic = call.getString("topic")!;
-        Messaging.messaging().unsubscribe(fromTopic: topic, completion: {completion in
-            if (completion == nil) {
-                call.resolve();
-            } else {
-                call.error("Failed unsubscribe from topic \(topic)", completion);
-            }
-        });
+        Messaging.messaging().unsubscribe(fromTopic: topic);
+        call.resolve();
     }
     
     @objc func destroy(_ call: CAPPluginCall) {
